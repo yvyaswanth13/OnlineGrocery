@@ -1,0 +1,87 @@
+﻿
+
+@{
+    List<Order> orders = ViewData["Order"] as List<Order>;
+}
+title>Online Grocery-My Orders</title>
+
+<body>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="userHome">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">My Orders</li>
+        </ol>
+    </nav>
+    <div class="container-fluid bg-3 text-center">
+        <h3>My Orders</h3>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 table-responsive">
+                <table class="table table-condensed table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.No</th>
+                            <th scope="col">Product Name</th>
+                            @*<th scope="col">Category</th>*@
+                            <th scope="col"><i class="fa fa-inr"></i>  Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col"><i class="fa fa-inr"></i> Sub Total</th>
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Expected Delivery Date</th>
+                            <th scope="col">Payment Method</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        orders
+                        @{
+                            var count = 0;
+                            var total=0;
+                            @foreach (var item in orders)
+                            {
+
+                                count = count + 1;
+                              
+                                <tr>
+                                    <td id="middle">@count</td>
+
+                                    <td id="middle">@item.Pname</td>
+                                    @*<td id="middle">${o.category}</td>*@
+                                    <td id="middle"><i class="fa fa-inr"></i> @item.Price</td>
+                                    <td id="middle">@item.Quantity</td>
+                                    <td id="middle"><i class="fa fa-inr"></i> @(item.Price*item.Quantity)</td>
+                                    <td id="middle">@item.OrderDate</td>
+                                    <td id="middle">@item.DeliveryDate</td>
+                                    <td id="middle">@item.PaymentMethod</td>
+                                    <td id="middle">
+
+                                        @if (@item.Status == "Delivered")
+                                        {
+                                            <h5 style="color: green;"><b>Delivered</b></h5>
+                                        }
+                                        @if (@item.Status == "Cancelled")
+                                        {
+
+                                            <h5 style="color: red;"><b>Cancelled</b></h5>
+                                            <h6><b>(Product not available)</b></h6>
+                                        }
+                                        @if (@item.Status == "Bill")
+                                        {
+                                            <h5 style="color: orange;"><b>Bill</b></h5>
+                                        }
+                                        @if (@item.Status == "Processing")
+                                        {<h5 style="color: orange;"><b>Processing</b></h5>
+                                        }
+                                        </td>
+                                </tr>
+                            }
+                      }
+                            </tbody>
+                </table>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</body>
+<br>
+<br>

@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    List<Order> orders = ViewData["Order"] as List<Order>;
+}
+
+
+<head>
+    <link rel="stylesheet" href="css/bill.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Shopping_cart_icon.svg/938px-Shopping_cart_icon.svg.png">
+    <title>Bill</title>
+</head>
+<body>
+
+    <h3>Online Grocery Store</h3>
+    <hr>
+
+    <div class="left-div"><h3>Name: @orders.LastOrDefault().Email </h3></div>
+    <div class="right-div-right"><h3>@orders.LastOrDefault().Email  </h3></div>
+    <div class="right-div"><h3>Mobile Number: @orders.LastOrDefault().MobileNumber </h3></div>
+
+    <div class="left-div"><h3>Order Date: @orders.LastOrDefault().OrderDate</h3></div>
+    <div class="right-div-right"><h3>Payment Method: @orders.LastOrDefault().PaymentMethod </h3></div>
+    <div class="right-div"><h3>Expected Delivery:  @orders.LastOrDefault().DeliveryDate</h3></div>
+
+    <div class="right-div-right"><h3>City: @orders.LastOrDefault().City </h3></div>
+    <div class="right-div"><h3>Address: @orders.LastOrDefault().Address</h3></div>
+    <div class="left-div"><h3>State: @orders.LastOrDefault().State </h3></div>
+    <div class="right-div-right"><h3>Country: @orders.Last().Country</h3></div>
+
+    <hr>
+    <br>
+    <table id="customers">
+
+        <thead>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Category</th>
+                <th scope="col"><i class="fa fa-inr"></i> price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Sub Total</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @{
+                var count = 0;
+                @foreach (var item in orders)
+                {
+
+                    count = count + 1;
+                    <tr>
+                        <td id="middle">@count</td>
+
+                        <td id="middle">
+                            @item.Pname
+                        </td>
+                        <td id="middle">
+                            <i class="fa fa-inr"></i>
+                            @item.Price
+                        </td>
+                        <td id="middle">
+                            @item.Quantity
+                        </td>
+                        <td id="middle">
+                            <i class="fa fa-inr"></i>
+                            @(item.Price*item.Quantity)
+                        </td>
+                        <td id="middle"><a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id" class="btn btn-info">Remove <i class='fas fa-trash-alt'></i></a></td>
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+    </table>
+    <h3>Total:${total} </h3>
+    <a asp-controller="Products" asp-action="Index" ><button class="button left-button">Continue Shopping</button></a>
+    <a onclick="window.print();"><button class="button right-button">Print</button></a>
+    <br><br><br><br>
+
+</body>

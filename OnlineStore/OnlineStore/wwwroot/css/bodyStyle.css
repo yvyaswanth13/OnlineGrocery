@@ -1,0 +1,55 @@
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+body {
+	font-family: Comic Sans MS;
+}
+
+#bodyBg {
+	background-image:
+		url("https://unsworthacademy.org.uk/wp-content/uploads/2020/03/FSM-980x421.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: Comic Sans MS;
+}
+
+#alert {
+	max-width: 400px;
+	margin: auto;
+}
+
+#contactP {
+	font-size: large;
+}
+
+.boxed {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+table, td, th {
+	vertical-align: middle;
+	text-align: center;
+	border-collapse: collapse;
+	table-layout: auto;
+}
+
+thead {
+	background-color: rgb(196, 235, 231);
+}
+
+#middle {
+	vertical-align: middle;
+}
+
+.footer {
+	background-color: gold;
+	padding: 15px;
+	height: 50px;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+
+}

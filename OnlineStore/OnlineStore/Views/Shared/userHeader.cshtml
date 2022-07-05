@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Microsoft.AspNetCore.Http;
+
+@{
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Shopping_cart_icon.svg/938px-Shopping_cart_icon.svg.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bodyStyle.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/js/alert.js"></script>
+</head>
+<!--Header-->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="https://pngimage.net/wp-content/uploads/2018/06/grocery-logo-png.png" width="80" height="50" style="filter:brightness(100%);">
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav" id='navList'>
+                <li><a href="userHome">Home <i class="glyphicon glyphicon-home"></i></a></li>
+                <li> <a asp-controller="Products" asp-action="Index">Products-Category <i class="glyphicon glyphicon-th"></i></a></li>
+                <li><a asp-controller="Cart" asp-action="myCart">My Cart <i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+                <li><a asp-controller="Orders" asp-action="myOrders">My Orders <i class="glyphicon glyphicon-list"></i></a></li>
+                <li><a href="changePassword">Change Password <i class="glyphicon glyphicon-edit"></i></a></li>
+                <li><a href="messageUs">Message Us <i class="glyphicon glyphicon-send"></i></a></li>
+                <li><a asp-controller="Users" asp-action="Logout">@Context.Session.GetString("Email") <i class="glyphicon glyphicon-log-out"></i></a></li>
+            </ul>
+
+            <form class="navbar-form navbar-right" role="search" action="search" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" placeholder="Search.." name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</nav>
+
