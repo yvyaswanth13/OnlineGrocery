@@ -21,6 +21,8 @@ use amazon;
 	price int,active varchar(10),
 	primary key(id));
 	
+	
+	
 	drop table cart
 	//------cart table--------
 	create table cart(id int Not Null,email varchar(100),product_id int,
@@ -29,6 +31,9 @@ use amazon;
 	FOREIGN KEY (email) REFERENCES users(email),
 	FOREIGN KEY (product_id) REFERENCES product(id)
 );
+
+
+
 	create table Orders(id int NOT NULL IDENTITY(1,1),email varchar(100), address varchar(500)
 	,city varchar(100),state varchar(100),
 	country varchar(100),
@@ -37,7 +42,15 @@ use amazon;
 	primary key(id),
 	FOREIGN KEY (email) REFERENCES users(email)
 );
+
+
 	create table message(id int IDENTITY(1,1),email varchar(100),subject varchar(200),body varchar(1000),PRIMARY KEY(ID));
+	
+	
+	
+	
+	
+	TEst Quires!!!
 	use amazon
 	insert into users (name,email) Values('yaswanth','test@gmail.com')
 	     INSERT INTO product(name,image,category,price,active) VALUES("Tomato-1kg","https://www.freepnglogos.com/uploads/tomato-png/tomato-and-kidney-stone-everyday-life-23.png","vegetables",10,"Yes");
